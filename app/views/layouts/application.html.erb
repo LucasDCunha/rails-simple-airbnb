@@ -5,11 +5,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="d-flex justify-content-between p-1 mb-4" style="background-color: rgb(250,250,250)">
+      <%= link_to "<button class='btn btn-lg'>Simple Aribnb</button>".html_safe, root_path %>
+      <div class="d-flex">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" value="">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <%= link_to "<button class='btn btn-outline-primary mx-2 mt-1'>Add Flat</button>".html_safe, new_flat_path %>
+      </div>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
